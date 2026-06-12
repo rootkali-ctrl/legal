@@ -42,26 +42,33 @@
             color: #000;
         }
 
-        /* The New Button Style */
-        .btn-privacy {
+        .btn-nav {
             display: inline-block;
             margin-top: 10px;
+            margin-right: 8px;
             padding: 10px 20px;
-            background-color: var(--accent-color);
             color: white;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            transition: opacity 0.2s ease, transform 0.1s ease;
         }
 
-        .btn-privacy:hover {
-            background-color: #0773c5;
+        .btn-nav:hover {
+            opacity: 0.8;
         }
 
-        .btn-privacy:active {
+        .btn-nav:active {
             transform: scale(0.98);
+        }
+
+        .btn-hub {
+            background-color: #636e72;
+        }
+
+        .btn-privacy {
+            background-color: var(--accent-color);
         }
 
         .effective-date {
@@ -123,10 +130,12 @@
                 padding: 20px;
             }
 
-            .btn-privacy {
+            .btn-nav {
                 width: 100%;
                 text-align: center;
                 box-sizing: border-box;
+                margin-right: 0;
+                margin-bottom: 8px;
             }
         }
     </style>
@@ -137,8 +146,8 @@
     <div class="container">
         <header>
             <h1>Terms of Service</h1>
-            <a href="privacy.html" class="btn-privacy">Read Privacy Policy →</a>
-
+            <a href="index.html" class="btn-nav btn-hub">← All Documents</a>
+            <a href="privacy.html" class="btn-nav btn-privacy">Privacy Policy →</a>
             <p class="effective-date">Effective Date: 09.03.2026</p>
             <p><strong>Welcome to The Snippet!</strong></p>
         </header>

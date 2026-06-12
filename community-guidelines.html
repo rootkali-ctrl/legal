@@ -42,11 +42,11 @@
             color: #000;
         }
 
-        .btn-back {
+        .btn-nav {
             display: inline-block;
             margin-top: 10px;
+            margin-right: 8px;
             padding: 10px 20px;
-            background-color: #636e72;
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -55,8 +55,16 @@
             transition: opacity 0.2s ease;
         }
 
-        .btn-back:hover {
+        .btn-nav:hover {
             opacity: 0.8;
+        }
+
+        .btn-hub {
+            background-color: #636e72;
+        }
+
+        .btn-terms {
+            background-color: #0984e3;
         }
 
         .effective-date {
@@ -115,10 +123,12 @@
                 padding: 20px;
             }
 
-            .btn-back {
+            .btn-nav {
                 width: 100%;
                 text-align: center;
                 box-sizing: border-box;
+                margin-right: 0;
+                margin-bottom: 8px;
             }
         }
     </style>
@@ -129,7 +139,8 @@
     <div class="container">
         <header>
             <h1>Community Guidelines</h1>
-            <a href="terms.html" class="btn-back">← Back to Terms of Service</a>
+            <a href="index.html" class="btn-nav btn-hub">← All Documents</a>
+            <a href="terms.html" class="btn-nav btn-terms">Terms of Service →</a>
             <p class="effective-date">Effective Date: 09.03.2026</p>
         </header>
 

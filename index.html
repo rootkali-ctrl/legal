@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal & Community | The Snippet</title>
+    <meta name="description" content="Access The Snippet's Terms of Service, Privacy Policy, and Community Guidelines from one place.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg: #0f0f13;
+            --surface: #18181f;
+            --surface-2: #22222c;
+            --border: rgba(255, 255, 255, 0.07);
+            --text: #e8e8f0;
+            --muted: #7a7a90;
+            --blue: #0984e3;
+            --green: #00b894;
+            --purple: #6c5ce7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Subtle background glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 520px;
+        }
+
+        /* Logo / Brand */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #6c5ce7, #0984e3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -1px;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .page-subtitle {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 36px;
+            line-height: 1.5;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 22px 24px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text);
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--card-accent, transparent) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .card:hover {
+            background-color: var(--surface-2);
+            border-color: var(--card-color, var(--border));
+            transform: translateY(-2px);
+        }
+
+        .card:hover::after {
+            opacity: 0.05;
+        }
+
+        .card:active {
+            transform: translateY(0px);
+        }
+
+        .card--terms {
+            --card-color: var(--blue);
+            --card-accent: var(--blue);
+        }
+
+        .card--privacy {
+            --card-color: var(--green);
+            --card-accent: var(--green);
+        }
+
+        .card--community {
+            --card-color: var(--purple);
+            --card-accent: var(--purple);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .card--terms .card-icon {
+            background-color: rgba(9, 132, 227, 0.12);
+        }
+
+        .card--privacy .card-icon {
+            background-color: rgba(0, 184, 148, 0.12);
+        }
+
+        .card--community .card-icon {
+            background-color: rgba(108, 92, 231, 0.12);
+        }
+
+        .card-text {
+            flex: 1;
+        }
+
+        .card-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .card-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        .card-arrow {
+            font-size: 1.1rem;
+            color: var(--muted);
+            transition: color 0.2s ease, transform 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .card:hover .card-arrow {
+            color: var(--card-color, var(--text));
+            transform: translateX(3px);
+        }
+
+        /* Accent dot on card */
+        .card-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-right: -6px;
+            background-color: var(--card-color, transparent);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .card:hover .card-dot {
+            opacity: 1;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 18px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="brand">
+            <div class="brand-logo">S</div>
+            <span class="brand-name">The Snippet</span>
+        </div>
+
+        <h1 class="page-title">Legal & Community</h1>
+        <p class="page-subtitle">Everything you need to know about how The Snippet works and what we stand for.</p>
+
+        <div class="cards">
+
+            <a href="terms.html" class="card card--terms" id="card-terms">
+                <div class="card-icon">📄</div>
+                <div class="card-text">
+                    <div class="card-label">Terms of Service</div>
+                    <div class="card-desc">The rules and agreement governing your use of the platform.</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="privacy.html" class="card card--privacy" id="card-privacy">
+                <div class="card-icon">🔒</div>
+                <div class="card-text">
+                    <div class="card-label">Privacy Policy</div>
+                    <div class="card-desc">How we collect, use, and protect your personal data.</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+            <a href="community-guidelines.html" class="card card--community" id="card-community">
+                <div class="card-icon">🤝</div>
+                <div class="card-text">
+                    <div class="card-label">Community Guidelines</div>
+                    <div class="card-desc">The standards we expect from every member of The Snippet community.</div>
+                </div>
+                <span class="card-arrow">→</span>
+            </a>
+
+        </div>
+
+        <footer>
+            &copy; 2026 The Snippet. All rights reserved.
+        </footer>
+    </div>
+</body>
+
+</html>
